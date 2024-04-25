@@ -1,0 +1,22 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label>Full Name</label><br>
+    <input type="text" formControlName="fullName">
+    <small *ngIf="signupForm.get('fullName')!.invalid &&signupForm.get('fullName')!.touched">*FullName is required</small>
+
+    <br>
+    <label>Email Id</label><br>
+    <input type="text" formControlName="emailId">
+    <small *ngIf="signupForm.get('emailId')!.invalid &&signupForm.get('emailId')!.touched">*EmailID is required</small>
+    <br>
+    <label>Password</label><br>
+    <input type="text" formControlName="password">
+    <small *ngIf="signupForm.get('password')!.invalid &&signupForm.get('password')!.touched">*Password is required</small>
+    <br>
+    <label class="mobile">Mobile Number</label>
+    
+    <br>
+    <input type="text" formControlName="mobile">
+    <small *ngIf="signupForm.get('mobile')!.invalid &&signupForm.get('mobile')!.touched">*Mobile is required</small>
+    <br>
+    <button type="submit" >SIGNUP</button>
+</form>

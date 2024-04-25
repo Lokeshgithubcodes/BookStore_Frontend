@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>Email Id</label><br>
+    <input type="text" formControlName="emailId"><br>
+    <label>Password</label><br>
+    <input type="text" formControlName="password"><br>
+    <a class="forgetLink">Forgot Password?</a><br>
+    <button class="login" type="submit" >Login</button>
+    <br>
+    <br><br>
+    <div class="divider">
+        <mat-divider></mat-divider>
+        <p>OR</p>
+    </div>
+    <button class="Facebook m-2">
+        Facebook
+    </button>
+    <button class="Google m-2">
+        Google
+    </button>
+</form>
