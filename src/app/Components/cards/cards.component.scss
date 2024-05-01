@@ -1,0 +1,57 @@
+.card-col{
+    height: 310px;
+    width: 235px;
+    //border: 2px solid;
+    margin-bottom: 30px;
+    border: 2px solid #E2E2E2;
+    border-radius: 3px;
+    transition-duration: 600ms;
+}
+
+.card-col:hover{
+    box-shadow: rgba(146, 143, 143, 0.273) 2px 2px 6px 6px;
+}
+
+.card-col .book-img{
+    height: 175px;
+    width: 99%;
+    //border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5F5F5;
+}
+
+.card-col .details{
+    width: 80%;
+    //border: 2px solid;
+    margin: 0px auto;
+}
+
+.details .auther{
+    font: normal normal normal 11px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+}
+
+.rating{
+    background-color: hsl(123, 43%, 39%);
+    color: white;
+    height: 120px;;
+    padding: 1px 2px 1px 5px;
+    margin-right: 3px;
+}
+
+.rating mat-icon{
+    font-size: medium;
+    position: relative;
+   
+    top: 10px;
+    margin-left: 5px;
+}
+
+.actualPrice{
+    text-decoration: line-through;
+    margin-left: 3px;
+    font-size: 13px;
+}

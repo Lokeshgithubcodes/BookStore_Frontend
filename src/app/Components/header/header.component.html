@@ -1,0 +1,71 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="image">
+            <img src="../../../assets/education.svg">
+            <!-- <img src="../../../assets/person.svg"> -->
+            <p class="para">Bookstore</p>
+        </div>
+        <div class="search">
+            <mat-form-field appearance="fill" class="searchinput">
+                <mat-icon matPref  ix>search</mat-icon>
+                <input matInput class="search-bar" type="text" placeholder="Search">
+            </mat-form-field>
+        </div>
+       
+        <div class="person">
+            <img  (click)="profiledata()" class="person-img pt-3"  src="../../../assets/person.svg">
+            <p style="font-size: 10px;padding-bottom: 10px;color: white;">{{"Lokesh R"}}</p>
+        </div>
+        <div class="signup" *ngIf="loginclick">
+            <dialog open id="dialog">
+                <span>Welcome</span>
+                <div class="text"><span style="font-size: 13px;">To acesess account and manage orders</span></div>
+                <div class="button"><button (click)="login()">LOGIN/SIGNUP</button></div>
+                <div class="divider">
+                <mat-divider></mat-divider>
+                </div>
+                <div class="orders">
+                    <img  class="shopping_bag" src="../../../assets/shopping_bag_FILL0_wght400_GRAD0_opsz24.svg"/>
+                     <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">My Orders</p>
+                    
+                  </div>
+                  <div class="orders">
+                    <img  class="shopping_bag" src="../../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg"/>
+                     <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">Whishlist</p>
+                  </div>
+                 
+                
+            </dialog>
+        </div>
+       
+        <div class="loggedin" *ngIf="loggedin">
+            <dialog open id="dialog">
+                <div><p> Hello {{"Lokesh R,"}}</p></div>
+                <div class="person-profile">
+                    <img  (click)="profile()"  class="profile" src="../../../assets/person_FILL0_wght400_GRAD0_opsz24.png">
+                    <p style=" padding-left: 10px;font-size: 13px;">{{"Profile"}}</p>
+                </div>
+                <div class="orders">
+                    <img  class="shopping_bag" src="../../../assets/shopping_bag_FILL0_wght400_GRAD0_opsz24.svg"/>
+                     <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">My Orders</p>
+                    
+                  </div>
+                  <div class="orders">
+                    <img (click)="wishlist()" class="shopping_bag" src="../../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg"/>
+                     <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">Whishlist</p>
+                  </div>
+                  <div class="lbutton">
+                    <button (click)="logout()" >Logout</button>
+                  </div>
+            </dialog>
+        </div> 
+
+        <div class="wishlist-icon">
+            <img class="cart-pic" src="../../../assets/supermarket.svg" (click)="tocart()">
+            <p style="color: white;font-size: 10px;padding-bottom: 10px;">Cart</p>
+          </div>
+    
+
+    </mat-toolbar-row>
+
+</mat-toolbar>

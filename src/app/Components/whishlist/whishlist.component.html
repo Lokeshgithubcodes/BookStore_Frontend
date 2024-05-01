@@ -1,0 +1,34 @@
+<div class="book-id">
+    <span routerLink="/carts">Home/</span> My whishlist
+    </div>
+<div class="main-div">
+    <span class="data">MY WHISHLIST({{cart.length}})</span>
+    
+        <div *ngFor="let cartdata of cart">
+        <div class="container">
+    <div class="inner-div1">
+        <img src="{{cartdata.image}}">
+    </div>
+    <div class="inner-div2">
+        <div class="title">
+            <span>{{cartdata.title}}</span>
+        </div>
+        <div class="author">
+            <span>{{cartdata.author}}</span>
+        </div>
+        <div class="amount">
+            {{cartdata.price}}<span>Rs.2000</span>
+        </div>
+       
+        </div>
+        <div class="inner-div3">
+            <span class="material-symbols-outlined" (click)="deletewhishlist(cartdata.id)">
+                delete
+                </span>
+    </div>
+            </div>
+        </div>
+
+
+
+</div>

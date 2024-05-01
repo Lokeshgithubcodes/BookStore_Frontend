@@ -1,0 +1,21 @@
+<div class="card-col">
+    <div class="book-img">
+        <img src="{{Book.image}}" alt="" width="105px" height="135px">
+    </div>
+    <div class="details">
+        <span>{{Book.title}}</span>
+
+        <br>
+
+        <mat-hint class="auther">by {{Book.author}}</mat-hint>
+        <br>
+
+        <span class="rating">4.5<mat-icon >star</mat-icon></span>
+        <mat-hint>({{Book.quantity}})</mat-hint>
+
+        <br>
+
+        <b>Rs. {{Book.price}} </b> <mat-hint class="actualPrice"> Rs. {{700}}</mat-hint>
+
+    </div>
+</div>

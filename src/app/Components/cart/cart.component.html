@@ -1,0 +1,66 @@
+<div class="book-id">
+    <span routerLink="/carts" style="padding-bottom: 15px;">Home/</span> Cart
+    </div>
+<div class="main-div">
+    <span style="padding-left: 25px;">My Cart({{cart.length}})</span>
+    <span class="location"><span class="material-symbols-outlined">
+        location_on
+        </span>Use current location ▼</span>
+        <div *ngFor="let cartdata of cart">
+        <div class="container">
+    <div class="inner-div1">
+        <img src="{{cartdata.image}}">
+    </div>
+    <div class="inner-div2">
+        <div class="title">
+            <span>{{cartdata.title}}</span>
+        </div>
+        <div class="author">
+            <span>{{cartdata.author}}</span>
+        </div>
+        <div class="amount">
+            Rs.{{cartdata.price}}<span>Rs.2000</span>
+        </div>
+        <div class="quantity">
+            <span class="add-quantity" >
+              
+                    <button class="material-symbols-outlined" (click)="decrement(cartdata)"><img  src="../../../assets/remove_24dp_FILL0_wght400_GRAD0_opsz24.svg"></button>
+
+                   
+                    <span>{{cartdata.quantity}}</span>
+                    <button class="material-symbols-outlined" (click)="increment(cartdata)"><img  src="../../../assets/add_24dp_FILL0_wght400_GRAD0_opsz24.svg"></button>
+
+
+            </span>
+            <span class="remove" (click)="deletecart(cartdata.id)">Remove</span>
+
+        </div>
+
+    
+    </div>
+            </div>
+        </div>
+
+        <div class="place-order" *ngIf="cart.length>0">
+            <span (click)="opendialog()" *ngIf="toggleplaceorder">PLACE ORDER</span>
+        </div>
+
+</div>
+<div class="address-text" *ngIf="!useraddress">
+    <span>Address Details</span>
+
+</div>
+<div class="address" *ngIf="useraddress">
+    <app-address (order)="handleevent($event)"></app-address>
+</div>
+<div class="order-text" *ngIf="!ordersummary">
+    
+    <span>Order Summary</span>
+
+</div>
+<div class="order-summary" *ngIf="ordersummary">
+    <app-ordersummary></app-ordersummary>
+    <div class="checkout" *ngIf="cart.length>0">
+        <button (click)="orderSucess()">CHECK OUT</button>
+    </div>
+</div>

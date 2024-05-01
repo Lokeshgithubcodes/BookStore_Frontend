@@ -1,0 +1,31 @@
+<div class="book-count-row">
+    <div class="book-count-col1">
+        <h1>Books</h1><mat-hint>({{bookcount}}) items</mat-hint>
+    </div>
+    <div class="book-count-col2">
+        
+
+        <button mat-button [matMenuTriggerFor]="menu">Sort by relevance <mat-icon>expand_more</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Price : Low to High</button>
+            <button mat-menu-item>Price : High to Low</button>
+            <button mat-menu-item>Newest Arraivals</button>
+        </mat-menu>
+
+    </div>
+</div>
+
+<br>
+
+<div class="card-container" >
+    <ng-container *ngFor="let book of BooksPrint | searchBook:searchString">
+        <app-cards [Book]="book"></app-cards>
+    </ng-container>
+</div>
+<!-- <div class="prev-next">
+    <pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls>
+</div> -->
+
+<div class="for-mb-2">
+
+</div>
