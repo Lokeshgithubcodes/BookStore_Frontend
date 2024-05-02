@@ -1,0 +1,99 @@
+<div class="book-id">
+    <span routerLink="/Dashboard/cards">Home/</span> Book({{newdata.id}})
+    </div>
+    
+    <div class="main-div">
+        <div class="inner-div1">
+            <img  class="book" src="{{newdata.image}}">
+            <div class="buttons">
+                    <button class="add-to-bag" *ngIf="button">ADD TO BAG</button>
+    
+                    <span class="add-quantity"  *ngIf="!button">
+                      
+                            <button  class="material-symbols-outlined">remove</button>
+                            <span>{{count}}</span>
+                            <button  class="material-symbols-outlined">add</button>
+    
+    
+                    </span>
+                        <button class="whishlist" (click)="add(newdata.id)" >&#10084; WHISHLIST</button>
+    
+        </div>
+        </div>
+        <div class="inner-div2">
+            <div class="title">
+                <span>{{newdata.title}}</span>
+            </div>
+            <div class="author">
+                <span>{{newdata.author}}</span>
+            </div>
+            <div class="book-rating">
+                <span class="rating">4.5 &#9733;</span><span class="rating-count">(20)</span>
+    
+            </div>
+            <div class="book-price">
+                {{newdata.price}}<span>Rs.2000</span>
+    
+            </div>
+    
+            <div class="book-data">
+                <span class="icon">&bull;</span> <span>Book Detail</span>
+            </div>
+            <div class="book-description">
+                <span>{{newdata.description}}</span>
+            </div>
+    
+            <div class="feedback-details">
+                <span>Customer Feedback</span>
+            </div>
+            <div class="feedback">
+                <div class="rating">
+                    
+                    <span>Overall rating</span>
+                </div>
+                <div class="stars">
+                    <span> &#9734; &#9734; &#9734; &#9734; &#9734;</span>
+                </div>
+                <div class="review-text">
+                    <input type="text" placeholder="Write your review">
+                </div>
+                <div class="submit">
+                    <button>Submit</button>
+                </div>
+                
+    
+            </div>
+            <div class="review-display">
+                <span class="review-image">
+                    AC
+                </span>
+                <span class="name">
+                   Lokesh 
+                </span>
+            </div>
+            <div class="review-stars">
+                <span>&starf;&starf;&starf;&starf;&starf;</span>
+            </div>
+            <div class="display-text">
+                <span>
+                    Good book.
+                </span>
+            </div>
+            <div class="review-display">
+                <span class="review-image">
+                    CV
+                </span>
+                <span class="name">
+                    Simth
+                </span>
+            </div>
+            <div class="review-stars">
+                <span>&starf;&starf;&starf;&starf;&starf;</span>
+            </div>
+            <div class="display-text">
+                <span>
+                    Great Book.
+                </span>
+            </div>
+        </div>
+    </div>

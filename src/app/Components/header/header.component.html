@@ -46,12 +46,12 @@
                     <p style=" padding-left: 10px;font-size: 13px;">{{"Profile"}}</p>
                 </div>
                 <div class="orders">
-                    <img  class="shopping_bag" src="../../../assets/shopping_bag_FILL0_wght400_GRAD0_opsz24.svg"/>
+                    <img (click)="gotoOrders()" class="shopping_bag" src="../../../assets/shopping_bag_FILL0_wght400_GRAD0_opsz24.svg"/>
                      <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">My Orders</p>
                     
                   </div>
                   <div class="orders">
-                    <img (click)="wishlist()" class="shopping_bag" src="../../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg"/>
+                    <img (click)="towishlist()" class="shopping_bag" src="../../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg"/>
                      <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">Whishlist</p>
                   </div>
                   <div class="lbutton">

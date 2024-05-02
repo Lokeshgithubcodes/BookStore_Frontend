@@ -1,0 +1,37 @@
+<div class="main-div"  *ngIf="orders">
+    
+  <span class="home" routerLink="/Dashboard/cards">Home/</span><span class="order-text">Order Summary</span> 
+   
+  <div *ngFor="let cartdata of cart">
+        <div class="container">
+    <div class="inner-div1">
+        <img src="{{cartdata.image}}">
+    </div>
+    <div class="inner-div2">
+        <div class="title">
+            <span>{{cartdata.title}}</span>
+        </div>
+        <div class="author">
+            <span>{{cartdata.author}}</span>
+        </div>
+        <div class="amount">
+            {{cartdata.quantity*cartdata.price}}<span>Rs.2000</span>
+        </div>
+    </div>
+    <div class="inner-div3">
+        <ul>
+            <li>
+                <b>Order placed Now!</b>
+            </li>
+        </ul>
+    </div>
+        </div>
+    </div>
+     
+</div>  
+
+ 
+
+
+
+   

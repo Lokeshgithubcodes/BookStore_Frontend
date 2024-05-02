@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../Services/Book/book.service';
+import { Router } from '@angular/router';
+import { response } from 'express';
+
 
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
-  styleUrls: ['./wishlist.component.scss']
+  styleUrl: './wishlist.component.scss'
 })
-export class WhishlistComponent implements OnInit {
-  constructor(private book: BookService) {}
+export class WishlistComponent implements OnInit {
+
+  constructor(private book: BookService, public router:Router) {}
 
   cartvalue: any[] = [];
   Books: any;
@@ -32,7 +36,7 @@ export class WhishlistComponent implements OnInit {
     };
   
     this.book.wishList(reqData).subscribe((response: any) => {
-      console.log(response);
+      console.log('normal',response);
       
       if (response.success && Array.isArray(response.data)) {
         const wishlistItems = response.data;
@@ -67,7 +71,19 @@ export class WhishlistComponent implements OnInit {
   }
 
   deletewhishlist(cardItem:any){
-
+    let reqData={
+      userid: localStorage.getItem('userid'),
+      bookid: cardItem
+    }
+    console.log(cardItem);
+    console.log(reqData);
+    this.book.wishlistDelete(reqData).subscribe((response:any)=>{
+      console.log(response);
+    })
+    
   }
-  
+
+  tocards(){
+    this.router.navigate(['Dashboard/cards'])
+  }
 }

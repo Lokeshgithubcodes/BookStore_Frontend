@@ -54,9 +54,59 @@ export class BookService {
     return this.httpService.getService(`https://localhost:7192/api/Cart/GetCardByUserId?userid=${userid}`,true,header);
   }
  
-  private wishList(reqData:any):Observable<any>{
-    const userid=reqData.userid;
+  
+  wishList(reqData:any){
+    const userid = reqData.userid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.getService(`https://localhost:7192/api/WishList/GetWhishList?userid=${userid}`,true,header);
+  }
+
+  private whishList=new BehaviorSubject<any>([]);
+  currWhishList=this.whishList.asObservable();
+
+  updatewhishList(newValue:any){
+    this.whishList.next(newValue);
+  }
+
+  wishlistDelete(reqData:any):Observable<any>{
     
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.postServiceReset(`https://localhost:7192/api/WishList/DeleteWhishList`,reqData,true,header);
+  }
+  
+
+  addWish(reqData:any):Observable<any>{
+    const userid=reqData.userid;
+    const bookid=reqData.bookid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+      
+    }
+    return this.httpService.putService('https://localhost:7192/api/WishList/AddToWishList',reqData,true,header);
+  }
+
+  getAllOrders(reqData:any):Observable<any>{
+    const userid=reqData.userid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.getService(`https://localhost:7192/api/Cart/GetCardByUserId?userid=${userid}`,true,header);
   }
 
 }

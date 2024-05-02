@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WhishlistComponent } from './whishlist.component';
+import { OrdersComponent } from './orders.component';
 
-describe('WhishlistComponent', () => {
-  let component: WhishlistComponent;
-  let fixture: ComponentFixture<WhishlistComponent>;
+describe('OrdersComponent', () => {
+  let component: OrdersComponent;
+  let fixture: ComponentFixture<OrdersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WhishlistComponent]
+      declarations: [OrdersComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(WhishlistComponent);
+    fixture = TestBed.createComponent(OrdersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

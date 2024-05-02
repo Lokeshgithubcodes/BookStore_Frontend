@@ -9,7 +9,9 @@ import { DisplayCardsComponent } from './Components/display-cards/display-cards.
 import { AddressComponent } from './Components/address/address.component';
 import { OrdersummaryComponent } from './Components/ordersummary/ordersummary.component';
 import { OrdersucessComponent } from './Components/ordersucess/ordersucess.component';
-import { WhishlistComponent } from './Components/whishlist/whishlist.component';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { BookDetailsComponent } from './Components/book-details/book-details.component';
+import { OrdersComponent } from './Components/orders/orders.component';
 
 const routes: Routes = [
   {path:'login',component:LoginSignupComponent},
@@ -22,7 +24,10 @@ const routes: Routes = [
     {path:'address',component:AddressComponent},
     {path:'ordersummary',component:OrdersummaryComponent},
     {path:'ordersucess', component:OrdersucessComponent},
-    {path:'wishlist',component:WhishlistComponent}
+    {path:'wish',component:WishlistComponent},
+    {path:'bookDetails/:id',component:BookDetailsComponent},
+    {path:'myorders', component:OrdersComponent}
+    
 
   ]}
 ];

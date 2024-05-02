@@ -9,6 +9,7 @@ import { LoginSignupComponent } from '../login-signup/login-signup.component';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  
   constructor(private dialog:MatDialog,private router:Router){}
   loginclick:boolean=false
   loggedin:boolean=false
@@ -44,9 +45,14 @@ tocart(){
 
 }
 
-wishlist(){
-  this.router.navigate(['Dashboard/wishlist'])
+towishlist(){
+  this.router.navigate(['Dashboard/wish'])
   console.log('wishlist Successfull');
+}
+
+gotoOrders(){
+  this.router.navigate(['Dashboard/myorders'])
+  console.log('Order Sucessfull');
 }
 
 }

@@ -30,7 +30,11 @@ import { CartComponent } from './Components/cart/cart.component';
 import { OrdersummaryComponent } from './Components/ordersummary/ordersummary.component';
 import { SearchBookPipe } from './Pipes/search-book.pipe';
 import { OrdersucessComponent } from './Components/ordersucess/ordersucess.component';
-import { WhishlistComponent } from './Components/whishlist/whishlist.component';
+import { MatRadioButton } from '@angular/material/radio';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { BookDetailsComponent } from './Components/book-details/book-details.component';
+import { OrdersComponent } from './Components/orders/orders.component';
+
 
 
 @NgModule({
@@ -50,7 +54,9 @@ import { WhishlistComponent } from './Components/whishlist/whishlist.component';
     CardsComponent,
     SearchBookPipe,
     OrdersucessComponent,
-    WhishlistComponent
+    WishlistComponent,
+    BookDetailsComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +74,8 @@ import { WhishlistComponent } from './Components/whishlist/whishlist.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatRadioModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioButton
   ],
   providers: [
     provideClientHydration(),
