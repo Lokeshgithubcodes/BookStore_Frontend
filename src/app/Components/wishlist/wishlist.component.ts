@@ -71,19 +71,28 @@ export class WishlistComponent implements OnInit {
   }
 
   deletewhishlist(cardItem:any){
+    console.log(cardItem)
     let reqData={
-      userid: localStorage.getItem('userid'),
-      bookid: cardItem
+      userid:localStorage.getItem('userid'),
+      bookid:cardItem
     }
-    console.log(cardItem);
     console.log(reqData);
-    this.book.wishlistDelete(reqData).subscribe((response:any)=>{
-      console.log(response);
-    })
+    console.log(cardItem);
+    this.book.deleteWish(reqData).subscribe((resp:any)=>{
+      //this.cartvalue = this.cartvalue.filter((item: any) => item.id !== cardItem.id);
+      // Update the cart variable
+      this.cart = this.cart.filter((item: any) => item.id !== cardItem);
+      console.log(resp);
+    console.log('cart',this.cart);
+    console.log('id value',reqData.bookid);
+    });
     
   }
+  
 
   tocards(){
     this.router.navigate(['Dashboard/cards'])
   }
+
+
 }

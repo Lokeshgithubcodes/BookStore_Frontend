@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../Services/Book/book.service';
 import { HttpService } from '../../Services/Http/http.service';
 
@@ -10,7 +10,7 @@ import { HttpService } from '../../Services/Http/http.service';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private book: BookService, private httpService: HttpService) {}
+  constructor(private activatedRoute: ActivatedRoute, private book: BookService, private httpService: HttpService, private router:Router) {}
 
   id: any;
   Books: any;
@@ -46,14 +46,45 @@ export class BookDetailsComponent implements OnInit {
   add(cartItem:any){
 
     let reqData={
-      userid:localStorage.getItem('userid'),
+      id:localStorage.getItem('userid'),
       bookid:cartItem
     }
     console.log(reqData);
 
     this.book.addWish(reqData).subscribe((resp:any)=>{
       console.log(resp);
+      if(resp.success){
+        this.router.navigate(['Dashboard/wish'])
+      }
     })
 
   }
+
+  increment(){
+    this.count+=1;
+  }
+
+  decrement(){
+    if(this.count>1){
+      this.count-=1;
+    }
+  }
+
+  Quantity(bookItem:any){
+    this.button=!this.button;
+
+    this.count=1;
+    let reqData={
+      quantity:this.count,
+      bookId:bookItem,
+      userid:localStorage.getItem('userid')
+
+    }
+    this.book.addcart(reqData).subscribe((res:any)=>{
+      console.log(res);
+    })
+  }
+
+
+
 }

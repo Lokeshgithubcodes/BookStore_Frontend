@@ -26,6 +26,8 @@ export class BookService {
     };
     return this.httpService.getService(`https://localhost:7192/api/Address/GetAddressByUserId?userid=${userid}`, true, header);
   }
+
+
   getBooks(): Observable<any> {
     let header = {
       headers: new HttpHeaders({
@@ -37,11 +39,14 @@ export class BookService {
     return this.httpService.getService('https://localhost:7192/api/Book/GetAllBooks', true,header,);
   }
 
+
   private cartList = new BehaviorSubject<any>([]);
   currCartList = this.cartList.asObservable();
   updateCartList(newValue: any[]) {
     this.cartList.next(newValue);
   }
+
+
 
   cartsList(reqData:any):Observable<any>{
     const userid = reqData.userid;
@@ -73,19 +78,7 @@ export class BookService {
     this.whishList.next(newValue);
   }
 
-  wishlistDelete(reqData:any):Observable<any>{
-    
-    let header={
-      headers:new HttpHeaders({
-        'Content-type':'application/json',
-        'Authorization':'Bearer '+this.token
-      })
-    }
-    return this.httpService.postServiceReset(`https://localhost:7192/api/WishList/DeleteWhishList`,reqData,true,header);
-  }
-  
-
-  addWish(reqData:any):Observable<any>{
+  deleteWish(reqData:any):Observable<any>{
     const userid=reqData.userid;
     const bookid=reqData.bookid;
     let header={
@@ -95,8 +88,22 @@ export class BookService {
       })
       
     }
-    return this.httpService.putService('https://localhost:7192/api/WishList/AddToWishList',reqData,true,header);
+    return this.httpService.postServiceReset('https://localhost:7192/api/WishList/DeleteWhishList',reqData,true,header);
   }
+  
+
+  addWish(reqData:any):Observable<any>{
+    
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+      
+    }
+    return this.httpService.postService('https://localhost:7192/api/WishList/AddToWishList',reqData,true,header);
+  }
+
 
   getAllOrders(reqData:any):Observable<any>{
     const userid=reqData.userid;
@@ -108,5 +115,18 @@ export class BookService {
     }
     return this.httpService.getService(`https://localhost:7192/api/Cart/GetCardByUserId?userid=${userid}`,true,header);
   }
+
+  addcart(reqData:any):Observable<any>{
+    let userid=reqData.userid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.postService(`https://localhost:7192/api/Cart/AddToCartByUserId?userid=${userid}`,reqData,true,header);
+  }
+
+
 
 }

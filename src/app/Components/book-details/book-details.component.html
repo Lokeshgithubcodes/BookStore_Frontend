@@ -6,17 +6,20 @@
         <div class="inner-div1">
             <img  class="book" src="{{newdata.image}}">
             <div class="buttons">
-                    <button class="add-to-bag" *ngIf="button">ADD TO BAG</button>
-    
-                    <span class="add-quantity"  *ngIf="!button">
+                <button class="add-to-bag" (click)="Quantity(newdata.id)" *ngIf="button">ADD TO BAG</button>
+
+                 <span class="add-quantity"  *ngIf="!button">
+                       
                       
-                            <button  class="material-symbols-outlined">remove</button>
-                            <span>{{count}}</span>
-                            <button  class="material-symbols-outlined">add</button>
+                  <button  class="material-symbols-outlined"  (click)="decrement()"><img  src="../../../assets/remove_24dp_FILL0_wght400_GRAD0_opsz24.svg"></button>
+                  <span>{{count}}</span>
+                  <button  class="material-symbols-outlined"  (click)="increment()"> <img  src="../../../assets/add_24dp_FILL0_wght400_GRAD0_opsz24.svg"></button>
+
+
+                 </span>
     
-    
-                    </span>
-                        <button class="whishlist" (click)="add(newdata.id)" >&#10084; WHISHLIST</button>
+                    
+                 <button class="whishlist" (click)="add(newdata.id)" >&#10084; WHISHLIST</button>
     
         </div>
         </div>

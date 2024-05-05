@@ -45,7 +45,7 @@ tocart(){
 
 }
 
-towishlist(){
+gotoWish(){
   this.router.navigate(['Dashboard/wish'])
   console.log('wishlist Successfull');
 }
